@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katherina Ross</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/8f26e5abfe.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+  <header class="margin-top">
+    <a href="./index.html"><h1>Katherina Ross</h1></a>
+    <nav>
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
+  <hr>
+  <header>
+    <p>Photographer for all occasions</p>
+    <nav>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-instagram"></a>
+    </nav>
+  </header>
+  <main class="margin-top">
+    <section>
+        <h2>Get in Touch</h2>
+        <form id="contact-form" class="margin-top" action="submit_form.php" method="POST">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="submit-button">Send Message</button>
+            </div>
+        </form>
+        <div id="response-message"></div>
+    </section>
+</main>
+<!-- Modal for Thank You Message -->
+<div id="thank-you-modal" class="modal">
+    <div class="modal-content-2">
+        <span class="close-modal"><i class="fa-solid fa-xmark"></i></span>
+        <h2>Thank You!</h2>
+        <p>Your message has been sent successfully. You will be redirected to the homepage shortly.</p>
+    </div>
+</div>
+
+  <hr>
+  <footer>
+    <p>@ Katherina Ross 2025</p>
+  </footer>
+</div>
+
+  <script src="scripts.js"></script>
+  <script>
+// Function to handle form submission
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from submitting the traditional way
+
+    // Get form values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Simple client-side validation
+    if (name === "" || email === "" || message === "") {
+        alert("All fields are required.");
+        return;
+    }
+
+    // Prepare the form data to send (simulating form submission)
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("message", message);
+
+    // Simulate sending the form data (use Fetch API or AJAX in real applications)
+    setTimeout(function() {
+        // Show the modal
+        document.getElementById('thank-you-modal').style.display = "block";
+
+        // Close the modal after 3 seconds and redirect to the homepage
+        setTimeout(function() {
+            document.getElementById('thank-you-modal').style.display = "none";
+            window.location.href = '/'; // Redirect to homepage
+        }, 5000);
+    }, 1000);
+});
+
+// Close the modal when the user clicks the "X"
+document.querySelector('.close-modal').addEventListener('click', function() {
+    document.getElementById('thank-you-modal').style.display = "none";
+    window.location.href = '/'; // Redirect to homepage
+});
+
+</script>
+</body>
+</html>
