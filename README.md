@@ -2,6 +2,8 @@
 
 A photographer portfolio website featuring a **masonry-style gallery** with **modal image viewing** and **fullscreen functionality**. The project also includes an **About page** and a **Contact form** to provide a complete and professional showcase for photographers.
 
+View live link: [here](https://aria-vero-s.github.io/masonry-layout-gallery/)
+
 ---
 
 ## Features
